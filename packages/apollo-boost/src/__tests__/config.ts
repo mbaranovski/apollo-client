@@ -32,7 +32,7 @@ describe('config', () => {
       fetch: customFetcher,
     });
 
-    client.query({ query }).then(({ data }) => {
+    return client.query({ query }).then(({ data }) => {
       expect(customFetcher).toHaveBeenCalledTimes(1);
       expect(stripSymbols(data)).toEqual({ foo: 'bar' });
     });
